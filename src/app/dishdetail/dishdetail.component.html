@@ -27,29 +27,15 @@
    </div>
 
   <div fxFlex="40">
-      <div fxFlex>
-          <!-- <md-grid-list cols="1" rowHeight="200px">
-            <h1>Comments</h1>
-            <md-grid-tile *ngFor="let di of dish.comments">
-              <md-grid-tile-footer>
-                <h1 md-line>{{di.comment}}</h1>
-                <h1 md-line>{{di.rating }}-Stars</h1> 
-                <h1 md-line>--{{di.author}}{{di.date | date}}</h1>
-              </md-grid-tile-footer>
-            </md-grid-tile>
-          </md-grid-list>
-          </div> -->
-          <md-card-header>
-              <md-card-title>
-                <h2>Comments</h2>
-              </md-card-title>
-          </md-card-header>
-          <md-list-item *ngFor="let di of dish.comments">
-              <p md-line> {{di.comment}} </p>
-              <p md-line> {{di.rating}}--Starts</p>
-              <p md-line> --{{di.author}} {{di.date | date}}</p>
-          </md-list-item>
-      </div>
-
+    <md-list *ngIf="dish">
+      <h3>Comments</h3>
+      <md-list-item *ngFor="let comment of dish.comments">
+        <h4 md-line>{{comment.comment}}</h4>
+        <p md-line> {{comment.rating}} Starts </p>
+        <p md-line> 
+          <span> -- {{comment.author}} {{comment.date | date}}</span>
+        </p>
+      </md-list-item>
+    </md-list>
   </div>
 </div>
